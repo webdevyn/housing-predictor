@@ -1,15 +1,15 @@
 import streamlit as st
 import pandas as pd
-import pickle
+import joblib
 import numpy as np
 
 # Load the trained model and the scaler
 @st.cache_resource
 def load_model():
     with open('models/linear_regression_model.pkl', 'rb') as f:
-        model = pickle.load(f)
+        model = joblib.load(f)
     with open('models/scaler.pkl', 'rb') as f:
-        scaler = pickle.load(f)
+        scaler = joblib.load(f)
     return model, scaler
 
 model, scaler = load_model()
