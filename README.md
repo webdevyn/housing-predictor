@@ -36,6 +36,24 @@ Build a regression model to predict housing prices using features like bedrooms,
 3. Run notebooks in order (01, 02, 03)
 4. Launch web app: `streamlit run app.py`
 
+## Deployment to Streamlit Cloud
+
+This project is ready to deploy on **Streamlit Community Cloud**. The following items are included:
+
+- `app.py` as the main application file
+- `requirements.txt` with all Python dependencies (including `streamlit`)
+- `runtime.txt` specifying Python 3.11
+- `.streamlit/config.toml` with server settings for cloud
+
+To deploy:
+
+1. Push the repository to a public GitHub repo (it already is).
+2. Go to [https://streamlit.io/cloud](https://streamlit.io/cloud) and sign in.
+3. Click **New app** and select the GitHub repo and branch (`main`).
+4. Set the **Main file path** to `app.py` and click **Deploy**.
+
+Streamlit will install packages from `requirements.txt` and use the runtime specified. You can make changes and redeploy by pushing new commits.
+
 ## Results
 
 - Model: Linear Regression
