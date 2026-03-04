@@ -18,9 +18,7 @@ model, scaler = load_model()
 st.title("House Price Prediction App")
 st.write("Enter the details of the house to predict its price.")
 
-# ------------------------------
 # Sidebar inputs for main features
-# ------------------------------
 st.sidebar.header("House Features")
 
 OverallQual  = st.sidebar.slider('Overall Quality', 1, 10, 6)
@@ -33,9 +31,7 @@ LotArea      = st.sidebar.number_input('Lot Area (sqft)', 1300, 215000, 8000)
 BedroomAbvGr = st.sidebar.slider('Bedrooms Above Ground', 0, 8, 3)
 FullBath     = st.sidebar.slider('Full Bath', 0, 3, 2)
 
-# ------------------------------
 # Default values for remaining features
-# ------------------------------
 default_values = {
     'Id': 1000,
     'MSSubClass': 50,
@@ -67,9 +63,7 @@ default_values = {
     'YrSold': 2009
 }
 
-# ------------------------------
 # Build features array in correct order
-# ------------------------------
 feature_order = ['Id', 'MSSubClass', 'LotFrontage', 'LotArea', 'OverallQual',
                  'OverallCond', 'YearBuilt', 'YearRemodAdd', 'MasVnrArea',
                  'BsmtFinSF1', 'BsmtFinSF2', 'BsmtUnfSF', 'TotalBsmtSF',
@@ -96,9 +90,7 @@ features_dict.update({
 
 features = np.array([[features_dict[f] for f in feature_order]])
 
-# ------------------------------
 # Predict
-# ------------------------------
 if st.sidebar.button('Predict Price'):
     features_scaled = scaler.transform(features)
     prediction = model.predict(features_scaled)[0]
